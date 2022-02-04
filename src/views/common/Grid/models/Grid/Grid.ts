@@ -1,21 +1,27 @@
+import { AllModules } from '@ag-grid-enterprise/all-modules'
 import clsx from 'clsx'
 
 class Grid {
-  constructor(config = { ...defaultConfig }) {
-    const { className: pClassName, ...rest } = config
+  constructor(config?: Config) {
+    this.config = config
+    this.props = Grid.normalizeProps(config)
+  }
+
+  static create = (config?: Config) => new Grid(config)
+
+  static normalizeProps = (props = defaultProps) => {
+    const { model, className: pClassName, ...rest } = props
     const className = clsx(pClassName)
 
-    this.config = config
-    this.props = {
+    return {
+      ...defaultProps,
       ...rest,
       className
     }
   }
-
-  static create = (config?: Config) => new Grid(config)
 }
 
-const defaultConfig = {} as Config
+const defaultProps = { reactUi: true, modules: AllModules } as View.Props
 
 export { Grid }
 
@@ -24,7 +30,7 @@ export { Grid }
 /*-------------------------------------------------------------*/
 
 interface Grid {
-  config: Config
+  config?: Config
   props: R.AgGridReactProps
 }
 

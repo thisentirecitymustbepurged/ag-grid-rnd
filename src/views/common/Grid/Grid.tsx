@@ -1,13 +1,14 @@
 import React, { useMemo } from 'react'
 import { AgGridReact } from '@ag-grid-community/react'
 import { Grid as Model } from './models'
+import '@ag-grid-community/core/dist/styles/ag-grid.css'
+import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css'
 
 const Grid = (props: Props) => {
-  if (props.model) return <AgGridReact {...props.model.props} />
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { model = useGrid(props) } = props
 
-  const model = useGrid(props) // eslint-disable-line react-hooks/rules-of-hooks
-
-  return <AgGridReact {...model.props} />
+  return <AgGridReact {...Model.normalizeProps(props)} {...model.props} />
 }
 
 const useGrid = (config?: Model.Config) => useMemo(Model.create.bindArgs(config), [])
