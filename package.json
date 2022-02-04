@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ag-grid-community/react": "^26.2.0",
+    "@ag-grid-enterprise/all-modules": "^26.2.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -10,8 +12,7 @@
     "@types/node": "^16.11.22",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
-    "ag-grid-enterprise": "^26.2.1",
-    "ag-grid-react": "^26.2.0",
+    "clsx": "^1.1.1",
     "mobx": "^6.3.13",
     "mobx-react": "^7.2.1",
     "react": "^17.0.2",
@@ -33,7 +34,10 @@
       "react-app/jest"
     ],
     "rules": {
-      "@typescript-eslint/no-redeclare": "off"
+      "@typescript-eslint/no-redeclare": "off",
+      "import/first": "off",
+      "react-hooks/exhaustive-deps": "off",
+      "no-extend-native": "off"
     }
   },
   "browserslist": {
