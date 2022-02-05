@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react'
 import { AgGridReact } from '@ag-grid-community/react'
 import { Grid as Model } from './models'
-import '@ag-grid-community/core/dist/styles/ag-grid.css'
-import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css'
+import './Grid.scss'
 
 const Grid = (props: Props) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks

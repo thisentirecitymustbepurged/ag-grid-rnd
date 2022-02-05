@@ -21,7 +21,7 @@ class Grid {
   }
 }
 
-const defaultProps = { reactUi: true, modules: AllModules } as View.Props
+const defaultProps = { reactUi: true, modules: AllModules, animateRows: true } as View.Props
 
 export { Grid }
 

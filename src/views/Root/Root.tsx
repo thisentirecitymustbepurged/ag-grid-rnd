@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useCall } from 'src/utils/hooks'
-import { Grid, useGrid } from '../common'
+import { Grid, useGrid } from 'src/views/common'
 import './Root.scss'
 
 const Root = (props: Props) => {
-  const grid = useGrid({ columnDefs, defaultColDef, className: 'ag-theme-alpine' })
+  const grid = useGrid(config)
   const [data, setData] = useState()
 
   useCall(loadData, [])
@@ -19,24 +19,28 @@ const Root = (props: Props) => {
   }
 }
 
-const defaultColDef = {
-  resizable: true,
-  sortable: true,
-  flex: 1
-}
+const config = {
+  className: 'ag-theme-alpine',
 
-const columnDefs = [
-  { field: 'athlete' },
-  { field: 'age' },
-  { field: 'country' },
-  { field: 'year' },
-  { field: 'date' },
-  { field: 'sport' },
-  { field: 'gold' },
-  { field: 'silver' },
-  { field: 'bronze' },
-  { field: 'total' }
-]
+  defaultColDef: {
+    resizable: true,
+    sortable: true,
+    flex: 1
+  },
+
+  columnDefs: [
+    { field: 'athlete' },
+    { field: 'age' },
+    { field: 'country' },
+    { field: 'year' },
+    { field: 'date' },
+    { field: 'sport' },
+    { field: 'gold' },
+    { field: 'silver' },
+    { field: 'bronze' },
+    { field: 'total' }
+  ]
+}
 
 export { Root }
 
