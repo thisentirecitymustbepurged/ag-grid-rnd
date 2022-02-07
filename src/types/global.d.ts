@@ -6,6 +6,7 @@ declare module 'react' {
   }
 
   type DomRef<Element = HTMLElement> = React.MutableRefObject<Element | null>
+  type HtmlProps<E = HTMLElement> = React.DetailedHTMLProps<React.HTMLAttributes<E>, E>
 }
 
 declare global {
@@ -21,7 +22,6 @@ declare global {
      * The bound function will have the specified initial arguments.
      * @param args A list of arguments to be passed to the new function.
      */
-
     bindArgs<T>(this: T): T
     bindArgs<T, A0, A extends any[], R>(this: (this: T, arg0: A0, ...args: A) => R, arg0: A0): (...args: A) => R
     // prettier-ignore

@@ -1,6 +1,8 @@
 :root {
   --clr-fnt-pri: rgb(250, 250, 250);
-  --clr-bg-sec: rgb(53, 53, 53);
+  --clr-bg-pri: rgb(53, 53, 53);
+  --clr-bg-sec: rgb(32, 33, 36);
+  --clr-brd-pri: rgb(99, 99, 99);
 }
 
 * {
@@ -13,7 +15,7 @@ body {
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--clr-bg-sec);
+  background: var(--clr-bg-pri);
   color: var(--clr-fnt-pri);
 }
 

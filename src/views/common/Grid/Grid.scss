@@ -1,2 +1,8 @@
 @import '@ag-grid-community/core/dist/styles/ag-grid.css';
-@import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
+@import '@ag-grid-community/core/dist/styles/ag-theme-alpine-dark.css';
+
+.ag-theme-alpine-dark {
+  //   --ag-background-color: var(--clr-bg-pri);
+  //   --ag-odd-row-background-color: var(--clr-bg-sec);
+  //   --ag-border-color: var(--clr-brd-pri);
+}

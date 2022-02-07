@@ -1,26 +1,23 @@
-import React, { useState } from 'react'
-import { useCall } from 'src/utils/hooks'
+import { observer } from 'mobx-react'
+import React from 'react'
+import { agGridApi } from 'src/apis'
+import { useXhrState } from 'src/models/common'
 import { Grid, useGrid } from 'src/views/common'
 import './Root.scss'
 
-const Root = (props: Props) => {
-  const grid = useGrid(config)
-  const [data, setData] = useState()
+const Root = observer((props: Props) => {
+  const { data } = useXhrState(agGridApi.getOlympicWinners, [])
+  const grid = useGrid({ ...gridConfig })
 
-  useCall(loadData, [])
+  return (
+    <>
+      <Grid model={grid} rowData={data} />
+    </>
+  )
+})
 
-  return <Grid model={grid} rowData={data} />
-
-  async function loadData() {
-    const res = await fetch('https://www.ag-grid.com/example-assets/olympic-winners.json')
-    const data = await res.json()
-
-    setData(data)
-  }
-}
-
-const config = {
-  className: 'ag-theme-alpine',
+const gridConfig = {
+  className: 'ag-theme-alpine-dark',
 
   defaultColDef: {
     resizable: true,

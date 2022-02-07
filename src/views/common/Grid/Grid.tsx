@@ -10,7 +10,7 @@ const Grid = (props: Props) => {
   return <AgGridReact {...Model.normalizeProps(props)} {...model.props} />
 }
 
-const useGrid = (config?: Model.Config) => useMemo(Model.create.bindArgs(config), [])
+const useGrid = (config?: Model.Config) => useMemo(() => new Model(config), [])
 
 export { Grid, useGrid }
 
